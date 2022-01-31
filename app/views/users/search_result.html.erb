@@ -1,0 +1,62 @@
+
+
+<h1>ユーザーid: <%= @user.id %></h1>
+<h1>名前: <%= @user.name %></h1>
+
+
+<br>
+
+<table class="account-table">
+  <thead>
+    <tr>
+      <th class="header1">登録金融機関名</th>
+      <th class="header2">残高</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.name %></td>
+      <td><%= account.balance.to_s(:delimited) %>円</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<div class="sum">
+  <%= @user.name %>さんの合計残高は<%= @sum.to_s(:delimited) %>円です！
+</div>
+
+
+<%= button_to '検索画面に戻る', {controller: 'users', action: 'index'}, {method: :get }%>
+
+
+
+<style>
+
+.account-table {
+ width: 100%;
+ text-align: center;
+ border-collapse: collapse;
+ border-spacing: 0;
+ margin-bottom: 30px;
+}
+
+.account-table th {
+ padding: 10px;
+ background: #e9faf9;
+ border: solid 1px #778ca3;
+}
+
+.account-table td {
+ padding: 10px;
+ border: solid 1px #778ca3;
+}
+
+.sum {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+</style>
