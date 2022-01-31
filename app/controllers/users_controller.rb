@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.new
   end
 
   def search_result
